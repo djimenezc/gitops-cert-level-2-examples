@@ -8,6 +8,19 @@ metadata:
 spec:
   project: default
 
+  ignoreDifferences:
+    - group: ""
+      kind: Secret
+      jsonPointers:
+        - /data
+        - /stringData
+    - group: apps
+      kind: Deployment
+      name: simple-deployment
+      namespace: example02
+      jsonPointers:
+        - /metadata/annotations/creation
+
   source:
     repoURL: https://github.com/codefresh-contrib/gitops-cert-level-2-examples.git
     targetRevision: HEAD
